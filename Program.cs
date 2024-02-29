@@ -20,9 +20,20 @@ namespace TelegramBot
         private static void Client_OnMessage(object? sender, Telegram.Bot.Args.MessageEventArgs e)
         {
             var id = e.Message.Chat.Id;
-            var text = e.Message?.Text;
+            var text = e.Message.Text;
 
-            Client.SendTextMessageAsync(id, $"You said: {text}");
+            //Client.SendTextMessageAsync(id, $"You said: {text}");
+
+            text = text.Substring(1).ToLower();
+            text = text.Split(' ')[0];
+            switch (text)
+            {
+                case "now":
+                    var response = DateTime.Now.ToString();
+                    Client.SendTextMessageAsync(id, $"DateTime:\n{response}");
+                    break;
+            }
+
         }
 
        
