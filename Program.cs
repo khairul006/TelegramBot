@@ -10,7 +10,7 @@ namespace TelegramBot
         [Obsolete]
         static void Main(string[] args)
         {
-            Client = new TelegramBotClient("7009725948:AAFI0Zd7MkMbM_AYzvkvpJmzHrHgHEFCQ6s");
+            Client = new TelegramBotClient("BOT_TOKEN");
             Client.OnMessage += Client_OnMessage;
             Client.StartReceiving();
             Thread.Sleep(-1);
